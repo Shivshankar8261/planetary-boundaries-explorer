@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-slate-900 antialiased dark:text-slate-100;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    background:
+      radial-gradient(1100px 520px at 15% -10%, rgb(47 168 99 / 0.10), transparent 60%),
+      radial-gradient(900px 500px at 95% 10%, rgb(215 38 61 / 0.07), transparent 60%),
+      #f6f7f4;
+    background-attachment: fixed;
+  }
+  .dark body {
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgb(47 168 99 / 0.16), transparent 60%),
+      radial-gradient(1000px 600px at 100% 0%, rgb(142 42 124 / 0.18), transparent 60%),
+      radial-gradient(900px 700px at 50% 120%, rgb(26 40 80 / 0.9), transparent 70%),
+      #050916;
+    background-attachment: fixed;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-sky-500 ring-offset-2 ring-offset-white dark:ring-offset-navy-950;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply disabled:opacity-40 inline-flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm transition hover:bg-slate-100 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10;
+  }
+  .menu-item {
+    @apply rounded-md px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-navy-800;
+  }
+  .card {
+    @apply rounded-3xl border border-slate-200/80 bg-white/80 p-4 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03];
+  }
+  .glass {
+    @apply border border-slate-200/80 bg-white/70 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.04];
+  }
+  .glass-strong {
+    @apply border border-slate-200 bg-white/90 backdrop-blur-xl dark:border-white/15 dark:bg-navy-900/85;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-1.5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 disabled:opacity-50;
+  }
+  .card-title {
+    @apply mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400;
+  }
+}
+
+/* SVG wedges: show the outline on keyboard focus (ring utilities don't apply to SVG). */
+.wedge:focus { outline: none; }
+.wedge:focus-visible .wedge-outline { opacity: 0.95 !important; stroke-dasharray: 4 3; }
+
+/* Slow drift along the boundary line */
+.boundary-flow { animation: boundary-flow 40s linear infinite; }
+@keyframes boundary-flow { to { stroke-dashoffset: -240; } }
+
+/* Timeline range input */
+.timeline-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: rgb(148 163 184 / 0.35);
+}
+.timeline-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #f4c430;
+  border: 3px solid #050916;
+  box-shadow: 0 0 0 4px rgb(244 196 48 / 0.25);
+  cursor: pointer;
+}
+.timeline-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #f4c430;
+  border: 3px solid #050916;
+  box-shadow: 0 0 0 4px rgb(244 196 48 / 0.25);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

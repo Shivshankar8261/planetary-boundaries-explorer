@@ -1,0 +1,980 @@
+{
+  "meta": {
+    "title": "The nine planetary boundaries",
+    "baseline": "Richardson et al. (2023), updated with the Planetary Health Check 2025 and NOAA GML (CO₂)",
+    "lastReviewed": "2026-10-12",
+    "todayYear": 2025,
+    "latestChange": {
+      "boundary": "ocean",
+      "text": "Ocean acidification became the 7th boundary transgressed",
+      "source": "phc2025",
+      "year": 2025
+    }
+  },
+  "sources": {
+    "richardson2023": {
+      "short": "Richardson et al. 2023",
+      "full": "Richardson, K., Steffen, W., Lucht, W., et al. (2023). Earth beyond six of nine planetary boundaries. Science Advances, 9(37), eadh2458.",
+      "url": "https://doi.org/10.1126/sciadv.adh2458"
+    },
+    "phc2025": {
+      "short": "Planetary Health Check 2025",
+      "full": "Sakschewski, B., Caesar, L., et al. (2025). Planetary Health Check 2025: A Scientific Assessment of the State of the Planet. Potsdam Institute for Climate Impact Research / Planetary Boundaries Science Lab.",
+      "url": "https://www.planetaryhealthcheck.org"
+    },
+    "steffen2015": {
+      "short": "Steffen et al. 2015",
+      "full": "Steffen, W., Richardson, K., Rockström, J., et al. (2015). Planetary boundaries: Guiding human development on a changing planet. Science, 347(6223), 1259855.",
+      "url": "https://doi.org/10.1126/science.1259855"
+    },
+    "rockstrom2009": {
+      "short": "Rockström et al. 2009",
+      "full": "Rockström, J., Steffen, W., Noone, K., et al. (2009). A safe operating space for humanity. Nature, 461, 472–475.",
+      "url": "https://doi.org/10.1038/461472a"
+    },
+    "noaa-gml": {
+      "short": "NOAA GML Mauna Loa",
+      "full": "Lan, X., Tans, P., Thoning, K. W. Trends in atmospheric CO₂ — Mauna Loa annual mean. NOAA Global Monitoring Laboratory.",
+      "url": "https://gml.noaa.gov/ccgg/trends/"
+    },
+    "lawdome": {
+      "short": "MacFarling Meure et al. 2006",
+      "full": "MacFarling Meure, C., et al. (2006). Law Dome CO₂, CH₄ and N₂O ice core records extended to 2000 years BP. Geophysical Research Letters, 33, L14810.",
+      "url": "https://doi.org/10.1029/2006GL026152"
+    },
+    "nasa-gistemp": {
+      "short": "NASA GISTEMP v4",
+      "full": "GISTEMP Team. GISS Surface Temperature Analysis (GISTEMP), version 4. NASA Goddard Institute for Space Studies; Lenssen, N., et al. (2024), JGR Atmospheres.",
+      "url": "https://data.giss.nasa.gov/gistemp/"
+    },
+    "gfw": {
+      "short": "Global Forest Watch",
+      "full": "Hansen, M. C., et al. (2013). High-resolution global maps of 21st-century forest cover change. Science, 342, 850–853. Data via Global Forest Watch Data API.",
+      "url": "https://www.globalforestwatch.org"
+    },
+    "forster2023": {
+      "short": "Forster et al. 2023",
+      "full": "Forster, P. M., et al. (2023). Indicators of Global Climate Change 2022. Earth System Science Data, 15, 2295–2327.",
+      "url": "https://doi.org/10.5194/essd-15-2295-2023"
+    },
+    "persson2022": {
+      "short": "Persson et al. 2022",
+      "full": "Persson, L., et al. (2022). Outside the safe operating space of the planetary boundary for novel entities. Environmental Science & Technology, 56(3), 1510–1521.",
+      "url": "https://doi.org/10.1021/acs.est.1c04158"
+    },
+    "wangerlandsson2022": {
+      "short": "Wang-Erlandsson et al. 2022",
+      "full": "Wang-Erlandsson, L., et al. (2022). A planetary boundary for green water. Nature Reviews Earth & Environment, 3, 380–392.",
+      "url": "https://doi.org/10.1038/s43017-022-00287-8"
+    },
+    "porkka2024": {
+      "short": "Porkka et al. 2024",
+      "full": "Porkka, M., et al. (2024). Notable shifts beyond pre-industrial streamflow and soil moisture conditions transgress the planetary boundary for freshwater change. Nature Water, 2, 262–273.",
+      "url": "https://doi.org/10.1038/s44221-024-00208-7"
+    },
+    "krausmann2013": {
+      "short": "Krausmann et al. 2013",
+      "full": "Krausmann, F., et al. (2013). Global human appropriation of net primary production doubled in the 20th century. PNAS, 110(25), 10324–10329.",
+      "url": "https://doi.org/10.1073/pnas.1211349110"
+    },
+    "meinshausen2020": {
+      "short": "Meinshausen et al. 2020 (SSP2-4.5)",
+      "full": "Meinshausen, M., et al. (2020). The shared socio-economic pathway (SSP) greenhouse gas concentrations and their extensions to 2500. Geoscientific Model Development, 13, 3571–3605.",
+      "url": "https://doi.org/10.5194/gmd-13-3571-2020"
+    },
+    "wmo2022": {
+      "short": "WMO Ozone Assessment 2022",
+      "full": "WMO (2022). Scientific Assessment of Ozone Depletion: 2022. GAW Report No. 278. Geneva: WMO.",
+      "url": "https://csl.noaa.gov/assessments/ozone/2022/"
+    },
+    "yadav2020": {
+      "short": "Yadav 2020 (LSE)",
+      "full": "Yadav, M. K. (2020). Planetary Boundaries as Planetary Risks: Consequences for Societies. LSE MPP essay, 05/06/2020 (and the primary sources it cites).",
+      "url": ""
+    },
+    "illustrative": {
+      "short": "Illustrative trajectory",
+      "full": "Approximate historical trajectory interpolated between published anchor points for animation only. Not an observational time series; see Sources & Methods.",
+      "url": ""
+    }
+  },
+  "boundaries": [
+    {
+      "id": "climate",
+      "name": "Climate change",
+      "labelLines": [
+        "Climate",
+        "change"
+      ],
+      "icon": "thermometer",
+      "description": "Climate change is one of two ‘core’ boundaries: substantial, persistent transgression alone could push the Earth system into a new state. It is tracked with two control variables — atmospheric CO₂ concentration and total anthropogenic radiative forcing — and both are beyond their boundaries.",
+      "drivers": [
+        "Fossil-fuel combustion (≈ three-quarters of greenhouse-gas emissions)",
+        "Deforestation and land-use change",
+        "Methane and nitrous oxide from agriculture, livestock and waste",
+        "Cement production and industrial processes"
+      ],
+      "consequences": [
+        {
+          "text": "Sea-level rise of 0.29–1.1 m this century threatens the ~2.4 billion people (≈40% of humanity) living within 100 km of a coast.",
+          "source": "yadav2020"
+        },
+        {
+          "text": "All ten costliest disasters of 2018 were weather extremes, causing ≈US$225 bn in economic losses (US$90 bn insured).",
+          "source": "yadav2020"
+        },
+        {
+          "text": "Higher risk of crossing tipping points (ice sheets, AMOC, Amazon) and of pushing other boundaries such as biosphere integrity and freshwater.",
+          "source": "richardson2023"
+        }
+      ],
+      "societies": [
+        {
+          "place": "Fiji",
+          "text": "Annual losses from extreme weather could reach 6.5% of GDP by 2050; coastal storms may push 32,400 people a year into hardship (from 25,700 today). Limited state capacity and an export-dependent agrarian economy constrain adaptation.",
+          "source": "yadav2020"
+        },
+        {
+          "place": "India",
+          "text": "More than half of 1.3 bn people depend on primary sectors. Climate-related disasters cost US$79.5 bn over 1998–2017, and low insurance penetration leaves ~270 million people below the poverty line highly exposed.",
+          "source": "yadav2020"
+        },
+        {
+          "place": "USA",
+          "text": "The largest absolute losses (US$945 bn, 1998–2017), but high insurance penetration, early warning and local government resources give strong recovery — unevenly distributed across ethnic and religious minorities.",
+          "source": "yadav2020"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "climate-co2",
+          "name": "CO₂ concentration",
+          "controlVariable": "Atmospheric CO₂ concentration",
+          "unit": "ppm",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 280,
+          "boundaryValue": 350,
+          "uncertaintyUpper": 450,
+          "boundarySource": "richardson2023",
+          "currentValue": 427.35,
+          "status": "increasing-risk",
+          "source": "noaa-gml",
+          "year": 2025,
+          "history": [
+            {
+              "year": 1950,
+              "value": 311.3
+            },
+            {
+              "year": 1959,
+              "value": 315.98
+            },
+            {
+              "year": 1970,
+              "value": 325.68
+            },
+            {
+              "year": 1980,
+              "value": 338.91
+            },
+            {
+              "year": 1990,
+              "value": 354.45
+            },
+            {
+              "year": 2000,
+              "value": 369.71
+            },
+            {
+              "year": 2010,
+              "value": 390.1
+            },
+            {
+              "year": 2020,
+              "value": 414.21
+            },
+            {
+              "year": 2025,
+              "value": 427.35
+            }
+          ],
+          "historySource": "noaa-gml",
+          "historyApprox": false,
+          "scenario2050": 507,
+          "scenarioSource": "meinshausen2020"
+        },
+        {
+          "id": "climate-rf",
+          "name": "Radiative forcing",
+          "controlVariable": "Total anthropogenic radiative forcing at top of atmosphere",
+          "unit": "W m⁻²",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": false,
+          "preindustrial": 0,
+          "boundaryValue": 1.0,
+          "uncertaintyUpper": 1.5,
+          "boundarySource": "richardson2023",
+          "currentValue": 2.91,
+          "status": "high-risk",
+          "source": "richardson2023",
+          "year": 2022,
+          "history": [
+            {
+              "year": 1950,
+              "value": 0.5
+            },
+            {
+              "year": 1970,
+              "value": 0.75
+            },
+            {
+              "year": 1990,
+              "value": 1.45
+            },
+            {
+              "year": 2000,
+              "value": 1.75
+            },
+            {
+              "year": 2010,
+              "value": 2.25
+            },
+            {
+              "year": 2022,
+              "value": 2.91
+            }
+          ],
+          "historySource": "forster2023",
+          "historyApprox": true,
+          "scenario2050": 3.7,
+          "scenarioSource": "meinshausen2020"
+        }
+      ]
+    },
+    {
+      "id": "novel-entities",
+      "name": "Novel entities",
+      "labelLines": [
+        "Novel",
+        "entities"
+      ],
+      "icon": "flask",
+      "description": "Synthetic chemicals, plastics, genetically modified organisms and other substances introduced by humans that can have disruptive effects on the Earth system. The boundary is set at zero release of untested novel entities; production now outpaces society’s capacity to assess and monitor them.",
+      "drivers": [
+        "Chemical production growing ~50-fold since 1950 and projected to triple again by 2050",
+        "Plastics production (over 400 Mt per year)",
+        "Persistent pollutants (PFAS, pesticides) and inadequate safety testing"
+      ],
+      "consequences": [
+        {
+          "text": "Persistent, mobile pollutants accumulate in soils, water and organisms worldwide, with effects that are hard to reverse.",
+          "source": "persson2022"
+        },
+        {
+          "text": "Microplastics and endocrine disruptors pose risks to human health and to ecosystem functioning.",
+          "source": "richardson2023"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "novel-entities",
+          "name": "Untested releases",
+          "controlVariable": "Share of synthetic chemicals released to the environment without adequate safety testing",
+          "unit": "%",
+          "direction": "higher-worse",
+          "scale": "qualitative",
+          "onRing": true,
+          "preindustrial": 0,
+          "boundaryValue": 0,
+          "uncertaintyUpper": null,
+          "boundarySource": "richardson2023",
+          "currentValue": null,
+          "display": "> 0%",
+          "status": "high-risk",
+          "source": "richardson2023",
+          "year": 2023,
+          "quantifiedSince": 2022,
+          "history": [],
+          "historySource": "persson2022",
+          "historyApprox": true,
+          "scenario2050": null,
+          "scenarioSource": "persson2022"
+        }
+      ]
+    },
+    {
+      "id": "ozone",
+      "name": "Stratospheric ozone depletion",
+      "labelLines": [
+        "Stratospheric",
+        "ozone depletion"
+      ],
+      "icon": "shield",
+      "description": "The stratospheric ozone layer filters harmful ultraviolet radiation. Thanks to the Montreal Protocol (1987) the global mean column is recovering and the boundary is not transgressed globally, though seasonal Antarctic ozone holes persist.",
+      "drivers": [
+        "Chlorofluorocarbons (CFCs), halons and other ozone-depleting substances",
+        "Nitrous oxide emissions (now the largest remaining ozone-depleting emission)",
+        "Rocket launches and possible future geoengineering"
+      ],
+      "consequences": [
+        {
+          "text": "Higher UV-B exposure raises skin cancer and cataract risk and damages crops and marine plankton.",
+          "source": "wmo2022"
+        },
+        {
+          "text": "A success story: global cooperation under the Montreal Protocol has put the layer on track to recover by around mid-century.",
+          "source": "wmo2022"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "ozone-o3",
+          "name": "Stratospheric O₃",
+          "controlVariable": "Global mean stratospheric O₃ concentration",
+          "unit": "DU",
+          "direction": "lower-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 290,
+          "boundaryValue": 276,
+          "uncertaintyUpper": 261,
+          "boundarySource": "richardson2023",
+          "currentValue": 284.6,
+          "status": "safe",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 290
+            },
+            {
+              "year": 1970,
+              "value": 289
+            },
+            {
+              "year": 1980,
+              "value": 287
+            },
+            {
+              "year": 1993,
+              "value": 281
+            },
+            {
+              "year": 2000,
+              "value": 283
+            },
+            {
+              "year": 2020,
+              "value": 284.6
+            }
+          ],
+          "historySource": "wmo2022",
+          "historyApprox": true,
+          "scenario2050": 289,
+          "scenarioSource": "wmo2022"
+        }
+      ]
+    },
+    {
+      "id": "aerosols",
+      "name": "Atmospheric aerosol loading",
+      "labelLines": [
+        "Atmospheric",
+        "aerosol loading"
+      ],
+      "icon": "cloud",
+      "description": "Aerosols — tiny particles from fossil fuels, biomass burning and dust — alter cloud formation, monsoons and regional rainfall. The global control variable is the difference in aerosol optical depth between the hemispheres, which is currently within the boundary, though regional values (e.g. South Asia) are high.",
+      "drivers": [
+        "Sulphate and black-carbon emissions from coal, oil and shipping",
+        "Biomass burning and wildfires",
+        "Dust from land degradation"
+      ],
+      "consequences": [
+        {
+          "text": "Strong hemispheric asymmetry can shift tropical rain belts and weaken monsoons that billions depend on.",
+          "source": "richardson2023"
+        },
+        {
+          "text": "Air pollution from aerosols causes millions of premature deaths each year.",
+          "source": "phc2025"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "aerosols-aod",
+          "name": "Interhemispheric AOD",
+          "controlVariable": "Interhemispheric difference in aerosol optical depth (AOD)",
+          "unit": "AOD",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 0.03,
+          "boundaryValue": 0.1,
+          "uncertaintyUpper": 0.25,
+          "boundarySource": "richardson2023",
+          "currentValue": 0.076,
+          "status": "safe",
+          "source": "richardson2023",
+          "year": 2019,
+          "history": [
+            {
+              "year": 1950,
+              "value": 0.06
+            },
+            {
+              "year": 1970,
+              "value": 0.085
+            },
+            {
+              "year": 1985,
+              "value": 0.095
+            },
+            {
+              "year": 2000,
+              "value": 0.085
+            },
+            {
+              "year": 2019,
+              "value": 0.076
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 0.055,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    },
+    {
+      "id": "ocean",
+      "name": "Ocean acidification",
+      "labelLines": [
+        "Ocean",
+        "acidification"
+      ],
+      "icon": "wave",
+      "description": "As the ocean absorbs CO₂ it becomes more acidic, lowering the saturation state of aragonite that corals, molluscs and plankton use to build shells. The Planetary Health Check 2025 revised the pre-industrial baseline upward and assessed this boundary as transgressed for the first time — the seventh of nine.",
+      "drivers": [
+        "Rising atmospheric CO₂ (≈ a quarter of emissions dissolve in the ocean)",
+        "Coastal nutrient pollution amplifying local acidification"
+      ],
+      "consequences": [
+        {
+          "text": "Warm-water coral reefs, pteropods and shellfish face impaired calcification, threatening fisheries and food security.",
+          "source": "phc2025"
+        },
+        {
+          "text": "Declines exceed 20% at high latitudes, where polar ecosystems are especially vulnerable.",
+          "source": "phc2025"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "ocean-arag",
+          "name": "Aragonite saturation",
+          "controlVariable": "Global mean surface-ocean aragonite saturation state (Ωarag)",
+          "unit": "Ωarag",
+          "direction": "lower-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 3.57,
+          "boundaryValue": 2.86,
+          "uncertaintyUpper": 2.5,
+          "boundarySource": "phc2025",
+          "currentValue": 2.84,
+          "status": "increasing-risk",
+          "source": "phc2025",
+          "year": 2024,
+          "history": [
+            {
+              "year": 1950,
+              "value": 3.4
+            },
+            {
+              "year": 1970,
+              "value": 3.3
+            },
+            {
+              "year": 1990,
+              "value": 3.13
+            },
+            {
+              "year": 2000,
+              "value": 3.04
+            },
+            {
+              "year": 2010,
+              "value": 2.94
+            },
+            {
+              "year": 2020,
+              "value": 2.87
+            },
+            {
+              "year": 2024,
+              "value": 2.84
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 2.62,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    },
+    {
+      "id": "biogeochemical",
+      "name": "Biogeochemical flows",
+      "labelLines": [
+        "Biogeochemical",
+        "flows"
+      ],
+      "icon": "leafDrop",
+      "sublabel": "N · P",
+      "description": "Human activity has profoundly altered the global nitrogen and phosphorus cycles, mainly through fertiliser use. Run-off over-fertilises lakes and coasts, causing algal blooms and oxygen-depleted dead zones. Both N and P are beyond their boundaries.",
+      "drivers": [
+        "Industrial nitrogen fixation (Haber–Bosch) for fertiliser",
+        "Cultivation of nitrogen-fixing crops",
+        "Mined phosphate fertiliser and manure",
+        "Sewage and livestock waste"
+      ],
+      "consequences": [
+        {
+          "text": "Eutrophication and hundreds of coastal hypoxic ‘dead zones’ harm fisheries and tourism.",
+          "source": "richardson2023"
+        },
+        {
+          "text": "Nitrous oxide from fertilised soils is a potent greenhouse gas and ozone-depleting substance.",
+          "source": "phc2025"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "bgc-n",
+          "name": "Nitrogen (N)",
+          "controlVariable": "Industrial and intentional biological fixation of N",
+          "unit": "Tg N yr⁻¹",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 0,
+          "boundaryValue": 62,
+          "uncertaintyUpper": 200,
+          "boundarySource": "richardson2023",
+          "currentValue": 190,
+          "status": "increasing-risk",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 30
+            },
+            {
+              "year": 1960,
+              "value": 40
+            },
+            {
+              "year": 1970,
+              "value": 65
+            },
+            {
+              "year": 1980,
+              "value": 100
+            },
+            {
+              "year": 1990,
+              "value": 120
+            },
+            {
+              "year": 2000,
+              "value": 140
+            },
+            {
+              "year": 2010,
+              "value": 165
+            },
+            {
+              "year": 2020,
+              "value": 190
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 230,
+          "scenarioSource": "illustrative"
+        },
+        {
+          "id": "bgc-p-regional",
+          "name": "Phosphorus (P)",
+          "controlVariable": "P flow from fertilisers to erodible soils (regional)",
+          "unit": "Tg P yr⁻¹",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 0,
+          "boundaryValue": 6.2,
+          "uncertaintyUpper": 11.2,
+          "boundarySource": "richardson2023",
+          "currentValue": 17.5,
+          "status": "high-risk",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 2.5
+            },
+            {
+              "year": 1970,
+              "value": 8
+            },
+            {
+              "year": 1990,
+              "value": 13
+            },
+            {
+              "year": 2000,
+              "value": 13.5
+            },
+            {
+              "year": 2020,
+              "value": 17.5
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 21,
+          "scenarioSource": "illustrative"
+        },
+        {
+          "id": "bgc-p-global",
+          "name": "Phosphorus (global)",
+          "controlVariable": "P flow from freshwater systems into the ocean (global)",
+          "unit": "Tg P yr⁻¹",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": false,
+          "preindustrial": 0,
+          "boundaryValue": 11,
+          "uncertaintyUpper": 100,
+          "boundarySource": "richardson2023",
+          "currentValue": 22,
+          "status": "increasing-risk",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 3
+            },
+            {
+              "year": 1970,
+              "value": 10
+            },
+            {
+              "year": 1990,
+              "value": 16
+            },
+            {
+              "year": 2000,
+              "value": 16
+            },
+            {
+              "year": 2020,
+              "value": 22
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 27,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    },
+    {
+      "id": "freshwater",
+      "name": "Freshwater change",
+      "labelLines": [
+        "Freshwater",
+        "change"
+      ],
+      "icon": "droplet",
+      "sublabel": "blue · green",
+      "description": "Freshwater change covers ‘blue water’ (rivers, lakes, groundwater) and ‘green water’ (soil moisture available to plants). Both control variables measure the share of ice-free land where monthly conditions deviate from pre-industrial variability, and both are transgressed.",
+      "drivers": [
+        "Irrigation withdrawals and river damming",
+        "Deforestation and land-use change altering evapotranspiration",
+        "Climate change shifting precipitation patterns"
+      ],
+      "consequences": [
+        {
+          "text": "Drying soils reduce crop yields and weaken the land carbon sink.",
+          "source": "wangerlandsson2022"
+        },
+        {
+          "text": "Altered streamflow threatens freshwater ecosystems, hydropower and water security for growing populations.",
+          "source": "porkka2024"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "fw-blue",
+          "name": "Blue water",
+          "controlVariable": "% of ice-free land area with deviations from pre-industrial streamflow variability",
+          "unit": "%",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 9.4,
+          "boundaryValue": 10.2,
+          "uncertaintyUpper": 50,
+          "boundarySource": "richardson2023",
+          "currentValue": 18.2,
+          "status": "increasing-risk",
+          "source": "porkka2024",
+          "year": 2010,
+          "history": [
+            {
+              "year": 1950,
+              "value": 11
+            },
+            {
+              "year": 1970,
+              "value": 13
+            },
+            {
+              "year": 1990,
+              "value": 15.5
+            },
+            {
+              "year": 2010,
+              "value": 18.2
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 22,
+          "scenarioSource": "illustrative"
+        },
+        {
+          "id": "fw-green",
+          "name": "Green water",
+          "controlVariable": "% of ice-free land area with deviations from pre-industrial root-zone soil-moisture variability",
+          "unit": "%",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 9.8,
+          "boundaryValue": 11.1,
+          "uncertaintyUpper": 50,
+          "boundarySource": "richardson2023",
+          "currentValue": 15.8,
+          "status": "increasing-risk",
+          "source": "wangerlandsson2022",
+          "year": 2010,
+          "history": [
+            {
+              "year": 1950,
+              "value": 12.5
+            },
+            {
+              "year": 1970,
+              "value": 13.5
+            },
+            {
+              "year": 1990,
+              "value": 14.5
+            },
+            {
+              "year": 2010,
+              "value": 15.8
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 19,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    },
+    {
+      "id": "land",
+      "name": "Land-system change",
+      "labelLines": [
+        "Land-system",
+        "change"
+      ],
+      "icon": "tree",
+      "description": "Forests regulate climate through carbon storage, evapotranspiration and surface albedo. The control variable is the remaining area of forest as a share of its original extent; it is transgressed globally and in the tropical, temperate and boreal biomes.",
+      "drivers": [
+        "Agricultural expansion (cattle, soy, palm oil)",
+        "Logging and infrastructure",
+        "Wildfires, increasingly intensified by climate change"
+      ],
+      "consequences": [
+        {
+          "text": "Loss of a major carbon sink accelerates climate change; Amazon dieback is a potential tipping element.",
+          "source": "richardson2023"
+        },
+        {
+          "text": "Degraded rainfall recycling and biodiversity loss threaten food production and Indigenous livelihoods.",
+          "source": "phc2025"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "land-forest",
+          "name": "Forest cover",
+          "controlVariable": "Global forest area as % of original (Holocene) forest cover",
+          "unit": "%",
+          "direction": "lower-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 100,
+          "boundaryValue": 75,
+          "uncertaintyUpper": 54,
+          "boundarySource": "richardson2023",
+          "currentValue": 60,
+          "status": "increasing-risk",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 68
+            },
+            {
+              "year": 1970,
+              "value": 66
+            },
+            {
+              "year": 1990,
+              "value": 63
+            },
+            {
+              "year": 2000,
+              "value": 62
+            },
+            {
+              "year": 2020,
+              "value": 60
+            }
+          ],
+          "historySource": "illustrative",
+          "historyApprox": true,
+          "scenario2050": 57,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    },
+    {
+      "id": "biosphere",
+      "name": "Biosphere integrity",
+      "labelLines": [
+        "Biosphere",
+        "integrity"
+      ],
+      "icon": "bird",
+      "sublabel": "genetic · functional",
+      "description": "The second ‘core’ boundary. Genetic diversity provides the long-term capacity of life to adapt; functional integrity — measured by how much of the planet’s net primary production humans take — reflects the biosphere’s ability to regulate the Earth system. Both are in the high-risk zone.",
+      "drivers": [
+        "Habitat conversion for agriculture and urbanisation",
+        "Overexploitation (fishing, hunting, logging)",
+        "Climate change, pollution and invasive species"
+      ],
+      "consequences": [
+        {
+          "text": "Extinction rates far above background erode the resilience of ecosystems and the services societies rely on (pollination, clean water, fisheries).",
+          "source": "richardson2023"
+        },
+        {
+          "text": "Biodiversity loss ranks among the top global risks by both likelihood and impact.",
+          "source": "yadav2020"
+        }
+      ],
+      "indicators": [
+        {
+          "id": "bio-genetic",
+          "name": "Genetic diversity",
+          "controlVariable": "Extinction rate (extinctions per million species-years, E/MSY)",
+          "unit": "E/MSY",
+          "direction": "higher-worse",
+          "scale": "log",
+          "onRing": true,
+          "preindustrial": 1,
+          "boundaryValue": 10,
+          "uncertaintyUpper": 100,
+          "boundarySource": "richardson2023",
+          "currentValue": 150,
+          "display": "> 100 E/MSY",
+          "status": "high-risk",
+          "source": "richardson2023",
+          "year": 2023,
+          "history": [
+            {
+              "year": 1950,
+              "value": 150
+            },
+            {
+              "year": 2023,
+              "value": 150
+            }
+          ],
+          "historySource": "richardson2023",
+          "historyApprox": true,
+          "historyNote": "No robust time series exists; held at the Richardson et al. (2023) estimate.",
+          "scenario2050": 150,
+          "scenarioSource": "richardson2023"
+        },
+        {
+          "id": "bio-functional",
+          "name": "Functional integrity",
+          "controlVariable": "Human appropriation of net primary production (HANPP), % of pre-industrial Holocene NPP",
+          "unit": "% HANPP",
+          "direction": "higher-worse",
+          "scale": "linear",
+          "onRing": true,
+          "preindustrial": 1.9,
+          "boundaryValue": 10,
+          "uncertaintyUpper": 20,
+          "boundarySource": "richardson2023",
+          "currentValue": 30,
+          "status": "high-risk",
+          "source": "richardson2023",
+          "year": 2020,
+          "history": [
+            {
+              "year": 1950,
+              "value": 18
+            },
+            {
+              "year": 1970,
+              "value": 21
+            },
+            {
+              "year": 1990,
+              "value": 24
+            },
+            {
+              "year": 2005,
+              "value": 26
+            },
+            {
+              "year": 2020,
+              "value": 30
+            }
+          ],
+          "historySource": "krausmann2013",
+          "historyApprox": true,
+          "scenario2050": 33,
+          "scenarioSource": "illustrative"
+        }
+      ]
+    }
+  ]
+}
