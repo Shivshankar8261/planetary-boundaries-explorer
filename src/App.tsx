@@ -12,7 +12,6 @@ import { WedgeList } from './components/WedgeList';
 import { HowToRead } from './components/HowToRead';
 import { ExportMenu } from './components/ExportMenu';
 import { SourcesPage } from './components/SourcesPage';
-import { PlanetaryBodies } from './components/PlanetaryBodies';
 import { LiveBadge } from './components/LiveBadge';
 import { Cite } from './components/Cite';
 import { Hero } from './components/Hero';
@@ -33,16 +32,13 @@ import { PALETTES } from './lib/palette';
 import { fmt } from './lib/format';
 import type { Evaluated, StatusFilter } from './lib/types';
 
-type View = 'diagram' | 'sources' | 'bodies';
-/** Hashes that open a subpage; any other hash is an anchor on the home page. */
-const PAGES: Record<string, View> = { '#sources': 'sources', '#planetary-bodies': 'bodies' };
-const viewFromHash = (): View => PAGES[window.location.hash] ?? 'diagram';
+type View = 'diagram' | 'sources';
+const viewFromHash = (): View => (window.location.hash === '#sources' ? 'sources' : 'diagram');
 const COMPARE_OPTIONS = [1950, 1975, 2000, 2050];
 const NAV = [
   { href: '#explore', label: 'Explore' },
   { href: '#boundaries', label: 'Boundaries' },
   { href: '#societies', label: 'Societies' },
-  { href: '#planetary-bodies', label: 'Planetary Bodies' },
   { href: '#sources', label: 'Sources' },
 ];
 
@@ -164,16 +160,6 @@ export default function App() {
     setHover(null);
   }, []);
   const closePanel = useCallback(() => setSelectedId(null), []);
-  const goHome = () => {
-    history.replaceState(null, '', ' ');
-    setView('diagram');
-    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-  };
-  // From a subpage: go back to the boundary cards and open that boundary's panel.
-  const openFromSubpage = (id: string) => {
-    window.location.hash = 'boundaries';
-    onSelect(id);
-  };
   const onYear = useCallback((y: number) => {
     setTourStep(null);
     setYear(y);
@@ -183,7 +169,7 @@ export default function App() {
     `Planetary boundaries, ${year}${isScenario ? ' (* scenario projection)' : ''}. Scaling after Richardson et al. 2023 (Science Advances). | ` +
     `Data: Richardson et al. 2023; Planetary Health Check 2025; NOAA GML.`;
 
-  const overHero = view !== 'sources' && !scrolled;
+  const overHero = view === 'diagram' && !scrolled;
 
   return (
     <div className="relative min-h-screen">
@@ -200,7 +186,7 @@ export default function App() {
         }`}
       >
         <div className="mx-auto flex h-full max-w-7xl items-center gap-3 px-4 sm:px-6">
-          <a href="#" onClick={(e) => { e.preventDefault(); goHome(); }} className="flex items-center gap-2.5" aria-label="Planetary Boundaries Explorer, back to top">
+          <a href="#" onClick={(e) => { e.preventDefault(); history.replaceState(null, '', ' '); setView('diagram'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="flex items-center gap-2.5" aria-label="Planetary Boundaries Explorer, back to top">
             <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true" className="shrink-0">
               <circle cx="16" cy="16" r="15" fill="#8e2a7c" opacity=".3" />
               <path d="M16 16 L16 1 A15 15 0 0 1 28.9 8.5Z" fill="#d7263d" />
@@ -208,21 +194,21 @@ export default function App() {
               <circle cx="16" cy="16" r="9" fill="none" stroke="currentColor" strokeDasharray="2 2" />
               <circle cx="16" cy="16" r="3.2" fill="#3b82c4" />
             </svg>
-            <span className="hidden text-sm font-semibold uppercase tracking-[0.2em] sm:inline lg:hidden xl:inline">Planetary&nbsp;Boundaries</span>
+            <span className="hidden text-sm font-semibold uppercase tracking-[0.2em] sm:inline">Planetary&nbsp;Boundaries</span>
           </a>
-          <nav aria-label="Main" className="ml-6 hidden gap-5 lg:flex xl:gap-6">
+          <nav aria-label="Main" className="ml-6 hidden gap-6 lg:flex">
             {NAV.map((n) => (
               <a
                 key={n.href}
                 href={n.href}
                 onClick={(e) => {
-                  if (!PAGES[n.href]) {
+                  if (n.href !== '#sources') {
                     e.preventDefault();
                     scrollTo(n.href.slice(1));
                   }
                 }}
-                aria-current={PAGES[n.href] && PAGES[n.href] === view ? 'page' : undefined}
-                className="whitespace-nowrap text-xs font-medium uppercase tracking-[0.18em] opacity-75 transition hover:opacity-100 aria-[current=page]:opacity-100"
+                aria-current={n.href === '#sources' && view === 'sources' ? 'page' : undefined}
+                className="text-xs font-medium uppercase tracking-[0.18em] opacity-75 transition hover:opacity-100 aria-[current=page]:opacity-100"
               >
                 {n.label}
               </a>
@@ -231,7 +217,7 @@ export default function App() {
           <div className="ml-auto flex items-center gap-2">
             <button type="button" className="btn-primary !rounded-full" onClick={startTour}>
               <svg width="12" height="12" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5v11l9.5-5.5z" fill="currentColor" /></svg>
-              <span className="hidden whitespace-nowrap sm:inline">Guided tour</span>
+              <span className="hidden sm:inline">Guided tour</span>
               <span className="sm:hidden">Tour</span>
             </button>
             <HowToRead />
@@ -254,8 +240,6 @@ export default function App() {
       <main id="main">
         {view === 'sources' ? (
           <SourcesPage data={data} live={live} />
-        ) : view === 'bodies' ? (
-          <PlanetaryBodies live={live} reducedMotion={reducedMotion} onBoundary={openFromSubpage} onHome={goHome} />
         ) : (
           <>
             <Hero
@@ -406,15 +390,6 @@ export default function App() {
             </Section>
 
             <Section
-              id="bodies-teaser"
-              intro="New · Planetary Bodies"
-              title={<>Why Earth? <strong className="font-semibold">Compare it with its neighbours</strong></>}
-              lead="Venus overheated, Mars dried out, the Moon never held air. See what makes Earth habitable, and what the nine boundaries protect."
-            >
-              <BodiesTeaser />
-            </Section>
-
-            <Section
               id="pathways"
               intro="Envisioning pathways"
               title={<>The way back into the <strong className="font-semibold">safe operating space</strong></>}
@@ -469,35 +444,5 @@ function LiveRow({ label, value, badge, cite }: { label: string; value: string; 
       <div className="mt-1 text-lg font-semibold tabular-nums">{value}</div>
       <div className="text-xs"><Cite id={cite} /></div>
     </div>
-  );
-}
-
-const TEASER = [
-  { name: 'Venus', note: '+464 °C', g: 'radial-gradient(circle at 32% 30%, #fbe7b5, #e0b25c 45%, #8a5a1c 100%)', size: 64 },
-  { name: 'Earth', note: '+15 °C', g: 'radial-gradient(circle at 32% 30%, #bfe6ff, #2f7fd0 42%, #1f6b3f 62%, #0a2140 100%)', size: 68 },
-  { name: 'Moon', note: '−20 °C', g: 'radial-gradient(circle at 32% 30%, #f1f1ef, #a9a8a4 45%, #4a4946 100%)', size: 30 },
-  { name: 'Mars', note: '−65 °C', g: 'radial-gradient(circle at 32% 30%, #f6b48f, #c1532d 45%, #4f1c10 100%)', size: 40 },
-];
-
-/** Home-page entry point to the Planetary Bodies subpage. */
-function BodiesTeaser() {
-  return (
-    <a
-      href="#planetary-bodies"
-      className="group flex flex-col gap-8 rounded-2xl border border-slate-200 p-6 transition hover:border-emerald-400 hover:shadow-lg dark:border-white/10 dark:hover:border-emerald-300/60 sm:flex-row sm:items-center sm:justify-between sm:p-8"
-    >
-      <span className="flex items-end gap-5 sm:gap-8" aria-hidden="true">
-        {TEASER.map((b) => (
-          <span key={b.name} className="flex flex-col items-center gap-2">
-            <span className="block rounded-full transition-transform group-hover:scale-105" style={{ width: b.size, height: b.size, background: b.g }} />
-            <span className="text-[11px] uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">{b.name}</span>
-            <span className="text-xs tabular-nums">{b.note}</span>
-          </span>
-        ))}
-      </span>
-      <span className="inline-flex items-center gap-2 self-start rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white group-hover:bg-slate-700 dark:bg-white dark:text-slate-900 dark:group-hover:bg-emerald-100 sm:self-center">
-        Open Planetary Bodies →
-      </span>
-    </a>
   );
 }

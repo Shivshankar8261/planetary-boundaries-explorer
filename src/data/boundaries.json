@@ -96,16 +96,6 @@
       "short": "Illustrative trajectory",
       "full": "Approximate historical trajectory interpolated between published anchor points for animation only. Not an observational time series; see Sources & Methods.",
       "url": ""
-    },
-    "nasa-factsheet": {
-      "short": "NASA Planetary Fact Sheet",
-      "full": "Williams, D. R. (2024). Planetary Fact Sheet – Metric. NASA Goddard Space Flight Center, National Space Science Data Center.",
-      "url": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/"
-    },
-    "nasa-titan": {
-      "short": "NASA Titan facts",
-      "full": "NASA Science (2024). Titan: Facts. Cassini–Huygens mission results.",
-      "url": "https://science.nasa.gov/saturn/moons/titan/"
     }
   },
   "boundaries": [
@@ -224,7 +214,7 @@
           "scale": "linear",
           "onRing": false,
           "preindustrial": 0,
-          "boundaryValue": 1,
+          "boundaryValue": 1.0,
           "uncertaintyUpper": 1.5,
           "boundarySource": "richardson2023",
           "currentValue": 2.91,

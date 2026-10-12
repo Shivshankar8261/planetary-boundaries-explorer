@@ -9,7 +9,7 @@ export function HowToRead() {
       label={
         <>
           <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2" /><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3 M12 17h.01" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
-          <span className="hidden whitespace-nowrap sm:inline">How to read this</span>
+          <span className="hidden sm:inline">How to read this</span>
         </>
       }
     >

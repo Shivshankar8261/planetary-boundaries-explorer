@@ -59,9 +59,6 @@ export function Hero({ rows, live, data, reducedMotion, onExplore, onTour, onSel
           <button type="button" onClick={onTour} className="rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
             ▶&nbsp; Take the guided tour
           </button>
-          <a href="#planetary-bodies" className="rounded-full px-4 py-3 text-sm font-semibold text-emerald-200 underline-offset-4 transition hover:text-white hover:underline">
-            Planetary Bodies →
-          </a>
         </div>
 
         <dl className="mt-14 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-6 border-t border-white/15 pt-6 md:grid-cols-4">
