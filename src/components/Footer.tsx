@@ -23,6 +23,7 @@ export function Footer({ live, onTour }: { live: LiveData; onTour: () => void })
               <li><a className="hover:underline" href="#explore">The diagram</a></li>
               <li><a className="hover:underline" href="#boundaries">The nine boundaries</a></li>
               <li><a className="hover:underline" href="#societies">Consequences for societies</a></li>
+              <li><a className="hover:underline" href="#planetary-bodies">Planetary Bodies</a></li>
               <li><button type="button" className="hover:underline" onClick={onTour}>Guided tour</button></li>
             </ul>
           </nav>
